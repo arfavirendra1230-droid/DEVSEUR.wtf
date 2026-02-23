@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DEVSEUR Serverside</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+width:90%;
+max-width:900px;
+margin:auto;
+padding-top:60px;
+}
+
+.title{
+font-size:38px;
+font-weight:bold;
+margin-bottom:40px;
+}
+
+.orange{
+color:#ff7b00;
+text-shadow:0 0 5px #ff7b00,0 0 15px #ff7b00,0 0 30px #ff7b00;
+}
+
+.white{
+color:white;
+text-shadow:0 0 5px white,0 0 15px white;
+}
+
+.tabs{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-bottom:30px;
+}
+
+.tab-btn{
+padding:8px 18px;
+background:#1e1e1e;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:8px;
+transition:0.3s;
+font-size:14px;
+}
+
+.tab-btn.active{
+background:#ff7b00;
+box-shadow:0 0 15px #ff7b00;
+}
+
+.tab-content{
+display:none;
+}
+
+.tab-content.active{
+display:block;
+}
+
+.section{
+margin:100px 0;
+background:#1e1e1e;
+border-radius:20px;
+padding:40px;
+opacity:0;
+transform:translateY(80px);
+transition:all 0.8s ease;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.buy-btn{
+padding:10px 20px;
+background:#ff7b00;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+font-size:14px;
+box-shadow:0 0 15px #ff7b00;
+transition:0.3s;
+}
+
+.buy-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #ff7b00;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">
+<span class="orange">DEVSEUR S</span><span class="white">erverside</span>
+</div>
+
+<div class="tabs">
+<button class="tab-btn active" onclick="openTab(0)">Introduction</button>
+<button class="tab-btn" onclick="openTab(1)">Pricing</button>
+</div>
+
+<!-- TAB 1 -->
+<div class="tab-content active">
+<h2>FAQ</h2>
+
+<div class="section">
+1. Is DEVSEUR a exploit?<br>
+No DEVSEUR is not a exploit you can use this without worrying to get banned by roblox.<br><br>
+
+2. Is DEVSEUR universal?<br>
+No DEVSEUR is not universal but you can use this in our supported games.<br><br>
+
+3. Is DEVSEUR a malware?<br>
+No you dont need any download.<br><br>
+
+4. Is DEVSEUR free?<br>
+No DEVSEUR is not currently free but its cheap and the price is 150 robux.<br><br>
+
+5. Does DEVSEUR have good games?<br>
+No we currently dont have good games but soon we will.
+</div>
+</div>
+
+<!-- TAB 2 -->
+<div class="tab-content">
+<h2>PRICING</h2>
+
+<div class="section">
+<h3>Whitelist</h3>
+<p>DEVSEUR Whitelist</p>
+<button class="buy-btn"
+onclick="window.location.href='https://www.roblox.com/game-pass/1549855336'">
+Buy for 150 robux
+</button>
+</div>
+
+<div class="section">
+<h3>Abuse Perm</h3>
+<p>Abuse Perm Addon</p>
+<button class="buy-btn"
+onclick="window.location.href='https://www.roblox.com/game-pass/1548998901'">
+Buy for 1000 robux
+</button>
+</div>
+</div>
+
+</div>
+
+<script>
+function openTab(index){
+let tabs=document.querySelectorAll(".tab-btn")
+let contents=document.querySelectorAll(".tab-content")
+
+tabs.forEach(t=>t.classList.remove("active"))
+contents.forEach(c=>c.classList.remove("active"))
+
+tabs[index].classList.add("active")
+contents[index].classList.add("active")
+
+setupObserver()
+}
+
+function setupObserver(){
+let sections=document.querySelectorAll(".tab-content.active .section")
+
+let observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}else{
+entry.target.classList.remove("show")
+}
+})
+},{threshold:0.3})
+
+sections.forEach(sec=>{
+observer.observe(sec)
+})
+}
+
+setupObserver()
+</script>
+
+</body>
+</html>
