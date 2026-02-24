@@ -43,6 +43,7 @@ display:flex;
 justify-content:center;
 gap:10px;
 margin-bottom:30px;
+flex-wrap:wrap;
 }
 
 .tab-btn{
@@ -70,13 +71,13 @@ display:block;
 }
 
 .section{
-margin:100px 0;
+margin:60px 0;
 background:#1e1e1e;
 border-radius:20px;
 padding:40px;
 opacity:0;
-transform:translateY(80px);
-transition:all 0.8s ease;
+transform:translateY(60px);
+transition:all 0.6s ease;
 }
 
 .section.show{
@@ -117,29 +118,28 @@ box-shadow:0 0 25px #ff7b00;
 <button class="tab-btn" onclick="openTab(2)">Instruction</button>
 </div>
 
-  
+<!-- INTRODUCTION -->
 <div class="tab-content active">
 <h2>FAQ</h2>
-
 <div class="section">
-1. Is DEVSEUR a exploit?<br>
-No DEVSEUR is not a exploit you can use this without worrying to get banned by roblox.<br><br>
+1. Is DEVSEUR an exploit?<br>
+No DEVSEUR is not an exploit and you can use this without worrying about getting banned by Roblox.<br><br>
 
 2. Is DEVSEUR universal?<br>
 No DEVSEUR is not universal but you can use this in our supported games.<br><br>
 
-3. Is DEVSEUR a malware?<br>
-No you dont need any download.<br><br>
+3. Is DEVSEUR malware?<br>
+No, you do not need any download.<br><br>
 
 4. Is DEVSEUR free?<br>
-No DEVSEUR is not currently free but its cheap and the price is 150 robux.<br><br>
+No DEVSEUR is not currently free but it's cheap and the price is 150 Robux.<br><br>
 
 5. Does DEVSEUR have good games?<br>
-No we currently dont have good games but soon we will.
+Currently we don't have many good games but more are coming soon.
 </div>
 </div>
 
-  
+<!-- PRICING -->
 <div class="tab-content">
 <h2>PRICING</h2>
 
@@ -148,7 +148,7 @@ No we currently dont have good games but soon we will.
 <p>DEVSEUR Whitelist</p>
 <button class="buy-btn"
 onclick="window.location.href='https://www.roblox.com/game-pass/1549855336'">
-Buy for 30 robux
+Buy for 30 Robux
 </button>
 </div>
 
@@ -157,27 +157,30 @@ Buy for 30 robux
 <p>Abuse Perm Addon</p>
 <button class="buy-btn"
 onclick="window.location.href='https://www.roblox.com/game-pass/1548998901'">
-Buy for 699 robux
+Buy for 699 Robux
 </button>
 </div>
+
 </div>
 
+<!-- INSTRUCTION -->
 <div class="tab-content">
 <h2>INSTRUCTION</h2>
 
 <div class="section">
-If you have already bought it please screenshot the proof and then dm<br><br>
+If you have already bought it please screenshot the proof and then DM<br><br>
 
-<b>『𝓓.𝓔.𝓥.1.𝓧.𝓓 』 ᗪᗴᐯ1᙭ᗪ</b><br><br>
+<span class="orange">『𝓓.𝓔.𝓥.1.𝓧.𝓓 』 ᗪᗴᐯ1᙭ᗪ</span><br><br>
 
-in the discord server saying:<br><br>
+in the Discord server saying:<br><br>
 
-"Hey i bought DEVSEUR SS and heres the proof (Send the screenshot) pls give me a whitelist."
+"Hey I bought DEVSEUR SS and here's the proof (Send the screenshot). Please give me a whitelist."
 </div>
+
 </div>
-  
+
 </div>
-  
+
 <script>
 function openTab(index){
 let tabs=document.querySelectorAll(".tab-btn")
@@ -199,8 +202,6 @@ let observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
 entry.target.classList.add("show")
-}else{
-entry.target.classList.remove("show")
 }
 })
 },{threshold:0.3})
@@ -214,11 +215,4 @@ setupObserver()
 </script>
 
 </body>
-
-
 </html>
-
-
-
-
-
