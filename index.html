@@ -8,10 +8,11 @@
 <style>
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial;
 background:#0f0f0f;
 color:white;
 text-align:center;
+overflow-x:hidden;
 }
 
 .container{
@@ -29,10 +30,12 @@ margin-bottom:40px;
 
 .orange{
 color:#ff7b00;
+text-shadow:0 0 5px #ff7b00,0 0 15px #ff7b00,0 0 30px #ff7b00;
 }
 
 .white{
 color:white;
+text-shadow:0 0 5px white,0 0 15px white;
 }
 
 .tabs{
@@ -44,16 +47,19 @@ flex-wrap:wrap;
 }
 
 .tab-btn{
-padding:10px 20px;
+padding:8px 18px;
 background:#1e1e1e;
 border:none;
 color:white;
 cursor:pointer;
 border-radius:8px;
+transition:0.3s;
+font-size:14px;
 }
 
 .tab-btn.active{
 background:#ff7b00;
+box-shadow:0 0 15px #ff7b00;
 }
 
 .tab-content{
@@ -65,19 +71,35 @@ display:block;
 }
 
 .section{
-margin:40px 0;
+margin:60px 0;
 background:#1e1e1e;
 border-radius:20px;
-padding:30px;
+padding:40px;
+opacity:0;
+transform:translateY(60px);
+transition:all 0.6s ease;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .buy-btn{
-display:inline-block;
 padding:10px 20px;
 background:#ff7b00;
+border:none;
 border-radius:8px;
 color:white;
-text-decoration:none;
+cursor:pointer;
+font-size:14px;
+box-shadow:0 0 15px #ff7b00;
+transition:0.3s;
+}
+
+.buy-btn:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #ff7b00;
 }
 </style>
 </head>
@@ -96,20 +118,30 @@ text-decoration:none;
 <button class="tab-btn" onclick="openTab(2)">Instruction</button>
 </div>
 
-<!-- INTRO -->
+<!-- INTRODUCTION -->
 <div class="tab-content active">
 <h2>FAQ</h2>
 <div class="section">
-DEVSEUR is not an exploit.<br><br>
-It is not universal.<br><br>
-No download required.<br><br>
-Price: 150 Robux.
+1. Is DEVSEUR an exploit?<br>
+No DEVSEUR is not an exploit and you can use this without worrying about getting banned by Roblox.<br><br>
+
+2. Is DEVSEUR universal?<br>
+No DEVSEUR is not universal but you can use this in our supported games.<br><br>
+
+3. Is DEVSEUR malware?<br>
+No, you do not need any download.<br><br>
+
+4. Is DEVSEUR free?<br>
+No DEVSEUR is not currently free but it's cheap and the price is 150 Robux.<br><br>
+
+5. Does DEVSEUR have good games?<br>
+Currently we don't have many good games but more are coming soon.
 </div>
 </div>
 
 <!-- PRICING -->
 <div class="tab-content">
-<h2>Pricing</h2>
+<h2>PRICING</h2>
 
 <div class="section">
 <h3>Whitelist</h3>
@@ -119,12 +151,12 @@ onclick="window.open='https://www.roblox.com/game-pass/1549855336'">
 Buy for 30 Robux
 </button>
 </div>
-
+  
 <div class="section">
 <h3>Abuse Perm</h3>
 <p>Abuse Perm Addon</p>
 <button class="buy-btn"
-onclick="window.location.href='https://www.roblox.com/game-pass/1548998901'">
+onclick="window.open='https://www.roblox.com/game-pass/1548998901'">
 Buy for 699 Robux
 </button>
 </div>
@@ -133,30 +165,53 @@ Buy for 699 Robux
 
 <!-- INSTRUCTION -->
 <div class="tab-content">
-<h2>Instruction</h2>
+<h2>INSTRUCTION</h2>
+
 <div class="section">
-If you already bought it, screenshot the proof and DM:<br><br>
-<b>『𝓓.𝓔.𝓥.1.𝓧.𝓓 』 ᗪᗴᐯ1᙭ᗪ</b><br><br>
-Send message:<br><br>
-"Hey I bought DEVSEUR SS and here's the proof. Please whitelist me."
+If you have already bought it please screenshot the proof and then DM<br><br>
+
+<span class="orange">『𝓓.𝓔.𝓥.1.𝓧.𝓓 』 ᗪᗴᐯ1᙭ᗪ</span><br><br>
+
+in the Discord server saying:<br><br>
+
+"Hey I bought DEVSEUR SS and here's the proof (Send the screenshot). Please give me a whitelist."
 </div>
+
 </div>
 
 </div>
 
 <script>
 function openTab(index){
-var tabs=document.querySelectorAll(".tab-btn");
-var contents=document.querySelectorAll(".tab-content");
+let tabs=document.querySelectorAll(".tab-btn")
+let contents=document.querySelectorAll(".tab-content")
 
-for(var i=0;i<tabs.length;i++){
-tabs[i].classList.remove("active");
-contents[i].classList.remove("active");
+tabs.forEach(t=>t.classList.remove("active"))
+contents.forEach(c=>c.classList.remove("active"))
+
+tabs[index].classList.add("active")
+contents[index].classList.add("active")
+
+setupObserver()
 }
 
-tabs[index].classList.add("active");
-contents[index].classList.add("active");
+function setupObserver(){
+let sections=document.querySelectorAll(".tab-content.active .section")
+
+let observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
 }
+})
+},{threshold:0.3})
+
+sections.forEach(sec=>{
+observer.observe(sec)
+})
+}
+
+setupObserver()
 </script>
 
 </body>
