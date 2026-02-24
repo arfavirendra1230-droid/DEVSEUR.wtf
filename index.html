@@ -8,7 +8,7 @@
 <style>
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, sans-serif;
 background:#0f0f0f;
 color:white;
 text-align:center;
@@ -85,13 +85,16 @@ opacity:1;
 transform:translateY(0);
 }
 
+.buy-link{
+text-decoration:none;
+}
+
 .buy-btn{
+display:inline-block;
 padding:10px 20px;
 background:#ff7b00;
-border:none;
 border-radius:8px;
 color:white;
-cursor:pointer;
 font-size:14px;
 box-shadow:0 0 15px #ff7b00;
 transition:0.3s;
@@ -146,19 +149,17 @@ Currently we don't have many good games but more are coming soon.
 <div class="section">
 <h3>Whitelist</h3>
 <p>DEVSEUR Whitelist</p>
-<button class="buy-btn"
-onclick="href='https://www.roblox.com/game-pass/1549855336' target='_blank'">
-Buy for 30 Robux
-</button>
+<a class="buy-link" href="https://www.roblox.com/game-pass/1549855336" target="_blank">
+<span class="buy-btn">Buy for 30 Robux</span>
+</a>
 </div>
-  
+
 <div class="section">
 <h3>Abuse Perm</h3>
 <p>Abuse Perm Addon</p>
-<button class="buy-btn"
-onclick="href='https://www.roblox.com/game-pass/1548998901' target='_blank'">
-Buy for 699 Robux
-</button>
+<a class="buy-link" href="https://www.roblox.com/game-pass/1548998901" target="_blank">
+<span class="buy-btn">Buy for 699 Robux</span>
+</a>
 </div>
 
 </div>
@@ -183,37 +184,36 @@ in the Discord server saying:<br><br>
 
 <script>
 function openTab(index){
-let tabs=document.querySelectorAll(".tab-btn")
-let contents=document.querySelectorAll(".tab-content")
+let tabs=document.querySelectorAll(".tab-btn");
+let contents=document.querySelectorAll(".tab-content");
 
-tabs.forEach(t=>t.classList.remove("active"))
-contents.forEach(c=>c.classList.remove("active"))
+tabs.forEach(t=>t.classList.remove("active"));
+contents.forEach(c=>c.classList.remove("active"));
 
-tabs[index].classList.add("active")
-contents[index].classList.add("active")
+tabs[index].classList.add("active");
+contents[index].classList.add("active");
 
-setupObserver()
+setupObserver();
 }
 
 function setupObserver(){
-let sections=document.querySelectorAll(".tab-content.active .section")
+let sections=document.querySelectorAll(".tab-content.active .section");
 
 let observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
-entry.target.classList.add("show")
+entry.target.classList.add("show");
 }
-})
-},{threshold:0.3})
+});
+},{threshold:0.3});
 
 sections.forEach(sec=>{
-observer.observe(sec)
-})
+observer.observe(sec);
+});
 }
 
-setupObserver()
+setupObserver();
 </script>
 
 </body>
 </html>
-
